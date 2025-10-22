@@ -3,241 +3,254 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Surat Cinta Lucu 💌</title>
+  <title>Bukan apa apa</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
+    * { box-sizing: border-box; }
     body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #eef1f5, #dce6f0);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      overflow: hidden;
+      margin:0;
+      font-family:'Poppins',sans-serif;
+      background: #f2f4f8;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      height:100vh;
+      overflow:hidden;
     }
 
-    .container {
-      text-align: center;
-      background: #ffffff;
-      padding: 30px;
-      border-radius: 16px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-      max-width: 90%;
-      width: 400px;
-      display: none;
-      animation: fadeIn 1s ease-in-out;
+    .fade-in {
+      animation: fadeIn 1s ease forwards;
     }
-
-    h1 {
-      color: #3e4c59;
-      margin-bottom: 10px;
-    }
-
-    .message {
-      color: #5a6772;
-      font-size: 1rem;
-      margin-bottom: 20px;
-      min-height: 60px;
-    }
-
-    .button-group {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .modern-button {
-      background: #4c8bf5;
-      color: white;
-      border: none;
-      padding: 12px 20px;
-      border-radius: 12px;
-      font-size: 1rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.2s ease-in-out;
-      box-shadow: 0 4px 10px rgba(76, 139, 245, 0.2);
-    }
-
-    .modern-button:hover {
-      background: #3a73d9;
-      transform: translateY(-2px);
-    }
-
-    .modern-button:active {
-      transform: scale(0.97);
-    }
-
-    .modal {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background-color: rgba(0, 0, 0, 0.5);
-      display: none;
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
-    }
-
-    .modal-content {
-      background: white;
-      padding: 20px;
-      border-radius: 12px;
-      max-width: 90%;
-      max-height: 90%;
-      text-align: center;
-      position: relative;
-    }
-
-    .modal-content img {
-      max-width: 100%;
-      max-height: 300px;
-      border-radius: 12px;
-    }
-
-    .close-btn {
-      position: absolute;
-      top: 10px;
-      right: 15px;
-      background: #ccc;
-      border: none;
-      padding: 5px 10px;
-      font-size: 1rem;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-
-    #quiz-container {
-      background: white;
-      padding: 30px;
-      border-radius: 16px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-      text-align: center;
-      max-width: 90%;
-      width: 400px;
-    }
-
-    #quiz-container input {
-      padding: 10px;
-      font-size: 1rem;
-      margin-top: 10px;
-      border: 1px solid #aaa;
-      border-radius: 8px;
-      width: 100%;
-    }
-
-    #quiz-container button {
-      margin-top: 15px;
-      padding: 10px 16px;
-      font-size: 1rem;
-      background: #4c8bf5;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
+    .fade-out {
+      animation: fadeOut 0.5s ease forwards;
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: scale(0.95); }
-      to { opacity: 1; transform: scale(1); }
+      0% { opacity:0; transform: translateY(20px); }
+      100% { opacity:1; transform: translateY(0); }
+    }
+    @keyframes fadeOut {
+      to { opacity:0; transform: translateY(-10px); }
     }
 
-    @keyframes typing {
-      from { width: 0 }
-      to { width: 100% }
+    .container, #quiz-container {
+      background:#fff;
+      padding:30px;
+      border-radius:16px;
+      box-shadow:0 10px 30px rgba(0,0,0,0.1);
+      max-width:90%;
+      width:400px;
+      text-align:center;
+      opacity: 1;
+      transition: opacity 0.5s ease;
+    }
+
+    h1,h2 {
+      color:#333;
+      margin-bottom:15px;
+    }
+
+    .big-button {
+      background:#4c8bf5;
+      color:#fff;
+      border:none;
+      padding:20px 30px;
+      border-radius:16px;
+      font-size:1.3rem;
+      font-weight:bold;
+      cursor:pointer;
+      width:100%;
+      transition: all .3s ease-in-out;
+      box-shadow:0 6px 14px rgba(76,139,245,0.25);
+    }
+    .big-button:hover {
+      background:#3a73d9;
+      transform:scale(1.03);
+    }
+
+    #quiz-container input {
+      padding:10px;
+      font-size:1rem;
+      margin-top:10px;
+      border:1px solid #aaa;
+      border-radius:8px;
+      width:100%;
+    }
+
+    #quiz-container button {
+      margin-top:15px;
+      padding:10px 16px;
+      font-size:1rem;
+      background:#4c8bf5;
+      color:#fff;
+      border:none;
+      border-radius:8px;
+      cursor:pointer;
+    }
+
+    #feedback {
+      margin-top:10px;
+      color:red;
+    }
+
+    .modal {
+      position:fixed;
+      top:0; left:0;
+      width:100%; height:100%;
+      background-color:rgba(0,0,0,0.5);
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      z-index:1000;
+      visibility: hidden;
+      opacity: 0;
+      transition: all 0.4s ease-in-out;
+    }
+
+    .modal.show {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .modal-content {
+      background:#fff;
+      padding:25px;
+      border-radius:14px;
+      max-width:90%;
+      width:450px;
+      text-align:center;
+      position:relative;
+      overflow-y: auto;
+      max-height: 80vh;
+      padding-right: 20px;
+      animation: popEnvelope 0.6s ease;
+    }
+
+    @keyframes popEnvelope {
+      0% { transform: scale(0.8); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .envelope {
+      width:100px;
+      height:100px;
+      margin: 20px auto 20px;
+      background:url('nyet.jpg') no-repeat center;
+      background-size:contain;
+      animation: openEnvelope 1s ease forwards;
+    }
+
+    .envelope1 {
+      width:100px;
+      height:100px;
+      margin: 20px auto 20px;
+      background:url('nyet1.jpg') no-repeat center;
+      background-size:contain;
+      animation: openEnvelope 1s ease forwards;
+    }
+
+    @keyframes openEnvelope {
+      0% { transform: rotateX(90deg) scale(0.5); opacity:0; }
+      60% { transform: rotateX(-10deg) scale(1.05); opacity:1; }
+      100% { transform: rotateX(0deg) scale(1); }
+    }
+
+    .letter-text {
+      color:#444;
+      font-size:1rem;
+      text-align:left;
+      margin-top:20px;
+      line-height:1.6;
+    }
+
+    @media (max-width:500px) {
+      .big-button {
+        font-size:1.1rem;
+        padding:16px 24px;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- Soal Aljabar -->
+  <!-- Soal Matematika -->
   <div id="quiz-container">
-    <h2>🧠 Jawab dulu soal ini ya:</h2>
-    <p>Jika \( 3x - 2 = 4x + 5 \), maka berapa nilai x?</p>
-    <input type="text" id="answer" placeholder="Jawaban kamu">
+    <h2>Memastikan aja</h2>
+    <p>Masukin tanggal lahir dengan format DD/MM/YYYY</p>
+    <input type="text" id="answer" placeholder="DD/MM/YYYY">
     <br>
     <button onclick="checkAnswer()">Cek Jawaban</button>
-    <p id="feedback" style="color: red; margin-top: 10px;"></p>
+    <p id="feedback"></p>
   </div>
 
   <!-- Konten Utama -->
-  <div class="container" id="main-content">
-    <h1>💌 Surat Cinta Lucu 💌</h1>
-    <p class="message" id="typing-text"></p>
-    
-    <div class="button-group">
-      <button class="modern-button" onclick="openModal('https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif')">Buka Rahasia 1 🤫</button>
-      <button class="modern-button" onclick="openModal('https://media.giphy.com/media/3oz8xKaR836UJOYeOc/giphy.gif')">Rahasia Lainnya 😁</button>
-      <button class="modern-button" onclick="openModal('https://media.giphy.com/media/xT0GqeSlGSRQut4QBa/giphy.gif')">Paling Lucu Ini 🫣</button>
-    </div>
+  <div class="container" id="main-content" style="display:none;">
+    <h1>Anu ini itu anuan</h1>
+    <button class="big-button" onclick="showPopup()">PENCET!!</button>
   </div>
 
-  <!-- Modal untuk Gambar -->
-  <div class="modal" id="image-modal">
-    <div class="modal-content">
-      <button class="close-btn" onclick="closeModal()">X</button>
-      <img id="modal-image" src="" alt="Love Image">
-      <p>✨ Gambar rahasia untuk kamu ✨</p>
-    </div>
-  </div>
-
-  <!-- Modal untuk Jawaban Salah -->
-  <div class="modal" id="error-modal">
-    <div class="modal-content">
-      <button class="close-btn" onclick="closeErrorModal()">X</button>
-      <img src="https://media.giphy.com/media/l0MYEqEzwMWFCg8rm/giphy.gif" alt="Salah Jawab">
-      <p>😅 Yah... itu salah. Coba lagi ya!</p>
+  <!-- Modal -->
+  <div class="modal" id="popup-modal">
+    <div class="modal-content" onclick="event.stopPropagation()">
+      <div class="envelope"></div>
+      <p class="letter-text">
+        Emmm sebenernya gua bingung sih mau ngomong apaan<br>
+        ini cuma iseng aja sih ya pokoknya gitu lah<br>
+        Becanda, Yakali gua ngomong gitu doang yekann<br><br>
+      </p>
+      <div class="envelope1"></div>
+      <p class="letter-text">
+        Plis ya, jangan terus-terusan insecure. Dunia tuh udah berisik banget, jangan biarin pikiran lu ikutan berisik juga.<br>
+        Lu udah cantik apa adanyaaalsakdjfaskldjf<br><br>
+        </p>
+      <p class="letter-text">
+        Dan lu tau ga sih, lu tuh udah bikin gua jadi makin semangat dalam hal apapun.<br>
+        Gua jadi pengen lebih baik lagi, biar bisa jadi orang yang pantas buat lu.<br>
+        Gua bener-bener kagum sama cara lu ngejalanin hidup, cara lu ngadepin masalah, dan cara lu support orang-orang di sekitar lu.<br><br>
+        Apalagi lu orangnya smart af ga boong, bikin gua jadi pengen belajar dari lu kayak, "kok bisa sih dia pinter bgt, dia belajar apaan aja, gua jadi pengen ikutan belajar juga deh jadinya"<br><br>
+        Kalo lu lagi belajar tuh gua jadi penasaran lu lagi belajar apa. Trus gua jadi pengen ikut belajar deh hehe<br>
+        Makasih ya udah jadi motivasi gua selama ini.<br>
+        (plis ajarin)
+        </p>
+      <div class="envelope"></div>
+      <p class="letter-text">
+        Pokoknya makasih ya<br>
+        Gua seneng banget bisa kenal sama lu<br>
+        Jangan lupa bahagia setiap hari!
+        </p>
     </div>
   </div>
 
   <script>
-    const correctAnswer = "-7";
+    const correctAnswer = "27/11/2007";
 
     function checkAnswer() {
       const userAnswer = document.getElementById("answer").value.trim();
       const feedback = document.getElementById("feedback");
-
       if (userAnswer === correctAnswer) {
-        document.getElementById("quiz-container").style.display = "none";
-        document.getElementById("main-content").style.display = "block";
-        startTyping();
+        const quiz = document.getElementById("quiz-container");
+        quiz.classList.add("fade-out");
+
+        setTimeout(() => {
+          quiz.style.display = "none";
+          const mainContent = document.getElementById("main-content");
+          mainContent.style.display = "block";
+          mainContent.classList.add("fade-in");
+        }, 500);
       } else {
-        feedback.textContent = "";
-        document.getElementById("error-modal").style.display = "flex";
+        feedback.textContent = "Yah salah";
       }
     }
 
-    function openModal(imageUrl) {
-      document.getElementById("modal-image").src = imageUrl;
-      document.getElementById("image-modal").style.display = "flex";
+    function showPopup() {
+      const modal = document.getElementById("popup-modal");
+      modal.classList.add("show");
     }
 
-    function closeModal() {
-      document.getElementById("image-modal").style.display = "none";
-    }
-
-    function closeErrorModal() {
-      document.getElementById("error-modal").style.display = "none";
-    }
-
-    function startTyping() {
-      const text = "Aku tidak pandai merangkai kata... tapi mencintaimu itu mudah 😄";
-      const element = document.getElementById("typing-text");
-      let i = 0;
-      function type() {
-        if (i < text.length) {
-          element.innerHTML += text.charAt(i);
-          i++;
-          setTimeout(type, 40);
-        }
-      }
-      type();
-    }
+    // Tutup popup jika klik luar modal-content
+    document.getElementById("popup-modal").addEventListener("click", function () {
+      this.classList.remove("show");
+    });
   </script>
 
 </body>

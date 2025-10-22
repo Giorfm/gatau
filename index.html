@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Surat Cinta Lucu 💌</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #eef1f5, #dce6f0);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .container {
+      text-align: center;
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      max-width: 90%;
+      width: 400px;
+      display: none;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    h1 {
+      color: #3e4c59;
+      margin-bottom: 10px;
+    }
+
+    .message {
+      color: #5a6772;
+      font-size: 1rem;
+      margin-bottom: 20px;
+      min-height: 60px;
+    }
+
+    .button-group {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .modern-button {
+      background: #4c8bf5;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+      box-shadow: 0 4px 10px rgba(76, 139, 245, 0.2);
+    }
+
+    .modern-button:hover {
+      background: #3a73d9;
+      transform: translateY(-2px);
+    }
+
+    .modern-button:active {
+      transform: scale(0.97);
+    }
+
+    .modal {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .modal-content {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      max-width: 90%;
+      max-height: 90%;
+      text-align: center;
+      position: relative;
+    }
+
+    .modal-content img {
+      max-width: 100%;
+      max-height: 300px;
+      border-radius: 12px;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      background: #ccc;
+      border: none;
+      padding: 5px 10px;
+      font-size: 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    #quiz-container {
+      background: white;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      max-width: 90%;
+      width: 400px;
+    }
+
+    #quiz-container input {
+      padding: 10px;
+      font-size: 1rem;
+      margin-top: 10px;
+      border: 1px solid #aaa;
+      border-radius: 8px;
+      width: 100%;
+    }
+
+    #quiz-container button {
+      margin-top: 15px;
+      padding: 10px 16px;
+      font-size: 1rem;
+      background: #4c8bf5;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Soal Aljabar -->
+  <div id="quiz-container">
+    <h2>🧠 Jawab dulu soal ini ya:</h2>
+    <p>Jika \( 3x - 2 = 4x + 5 \), maka berapa nilai x?</p>
+    <input type="text" id="answer" placeholder="Jawaban kamu">
+    <br>
+    <button onclick="checkAnswer()">Cek Jawaban</button>
+    <p id="feedback" style="color: red; margin-top: 10px;"></p>
+  </div>
+
+  <!-- Konten Utama -->
+  <div class="container" id="main-content">
+    <h1>💌 Surat Cinta Lucu 💌</h1>
+    <p class="message" id="typing-text"></p>
+    
+    <div class="button-group">
+      <button class="modern-button" onclick="openModal('https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif')">Buka Rahasia 1 🤫</button>
+      <button class="modern-button" onclick="openModal('https://media.giphy.com/media/3oz8xKaR836UJOYeOc/giphy.gif')">Rahasia Lainnya 😁</button>
+      <button class="modern-button" onclick="openModal('https://media.giphy.com/media/xT0GqeSlGSRQut4QBa/giphy.gif')">Paling Lucu Ini 🫣</button>
+    </div>
+  </div>
+
+  <!-- Modal untuk Gambar -->
+  <div class="modal" id="image-modal">
+    <div class="modal-content">
+      <button class="close-btn" onclick="closeModal()">X</button>
+      <img id="modal-image" src="" alt="Love Image">
+      <p>✨ Gambar rahasia untuk kamu ✨</p>
+    </div>
+  </div>
+
+  <!-- Modal untuk Jawaban Salah -->
+  <div class="modal" id="error-modal">
+    <div class="modal-content">
+      <button class="close-btn" onclick="closeErrorModal()">X</button>
+      <img src="https://media.giphy.com/media/l0MYEqEzwMWFCg8rm/giphy.gif" alt="Salah Jawab">
+      <p>😅 Yah... itu salah. Coba lagi ya!</p>
+    </div>
+  </div>
+
+  <script>
+    const correctAnswer = "-7";
+
+    function checkAnswer() {
+      const userAnswer = document.getElementById("answer").value.trim();
+      const feedback = document.getElementById("feedback");
+
+      if (userAnswer === correctAnswer) {
+        document.getElementById("quiz-container").style.display = "none";
+        document.getElementById("main-content").style.display = "block";
+        startTyping();
+      } else {
+        feedback.textContent = "";
+        document.getElementById("error-modal").style.display = "flex";
+      }
+    }
+
+    function openModal(imageUrl) {
+      document.getElementById("modal-image").src = imageUrl;
+      document.getElementById("image-modal").style.display = "flex";
+    }
+
+    function closeModal() {
+      document.getElementById("image-modal").style.display = "none";
+    }
+
+    function closeErrorModal() {
+      document.getElementById("error-modal").style.display = "none";
+    }
+
+    function startTyping() {
+      const text = "Aku tidak pandai merangkai kata... tapi mencintaimu itu mudah 😄";
+      const element = document.getElementById("typing-text");
+      let i = 0;
+      function type() {
+        if (i < text.length) {
+          element.innerHTML += text.charAt(i);
+          i++;
+          setTimeout(type, 40);
+        }
+      }
+      type();
+    }
+  </script>
+
+</body>
+</html>

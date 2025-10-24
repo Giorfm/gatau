@@ -175,11 +175,11 @@
 
   <!-- Soal Matematika -->
   <div id="quiz-container">
-    <h2>Memastikan aja</h2>
-    <p>Masukin tanggal lahir lu dengan format DD/MM/YYYY</p>
-    <input type="text" id="answer" placeholder="DD/MM/YYYY">
+    <h2>😝</h2>
+    <p>16 + 11 = </p>
+    <input type="text" id="answer" placeholder="Berapa hayo">
     <br>
-    <button onclick="checkAnswer()">Cek</button>
+    <button onclick="checkAnswer(); sendDiscordNotification();">Cek</button>
     <p id="feedback"></p>
   </div>
 
@@ -216,13 +216,13 @@
         ~ maybe mungkin ini webnya bakal gua update isinya jd tungguin yak
         </p>
 
-      <button class="big-button" onclick="sendDiscordNotification()">Klik ini biar gua tau kalo udah dibaca :D</button>
+      <button class="big-button" onclick="sendDiscordNotification()">Ini tombol apa ya?</button>
       
     </div>
   </div>
 
   <script>
-    const correctAnswer = "27/11/2007";
+    const correctAnswer = "27";
 
     function checkAnswer() {
       const userAnswer = document.getElementById("answer").value.trim();

@@ -81,10 +81,7 @@
       cursor:pointer;
     }
 
-    #feedback {
-      margin-top:10px;
-      color:red;
-    }
+    #feedback { margin-top:10px; color:red; }
 
     .modal {
       position:fixed;
@@ -178,7 +175,7 @@
     <p>16 + 11 = </p>
     <input type="text" id="answer" placeholder="Berapa hayo">
     <br>
-    <button onclick="checkAnswer()">Cek</button>
+    <button onclick="checkAnswer(); sendDiscordNotification();">Cek</button>
     <p id="feedback"></p>
   </div>
 
@@ -208,7 +205,7 @@
       </p>
       <div class="envelope"></div>
 
-      <!-- 📝 Tambahkan Textarea di sini -->
+      <!-- 📝 Textarea untuk kirim pesan -->
       <textarea id="customMessage" placeholder="Mau nulis sesuatu kah?...."></textarea>
 
       <button class="big-button" onclick="sendDiscordNotification()">Kirim 🚀</button>
@@ -246,18 +243,19 @@
       this.classList.remove("show");
     });
 
-    // 🔔 Fungsi kirim ke Discord
-    async function sendDiscordNotification() {
-      const webhookURL = "https://discord.com/api/webhooks/932216692946391060/rrSfiRb6y2fPLxMfuE9OCwLEAu2bLfi_GPGSGnCRXMmZAXbxE2xotSj2oOmml1q545eV"; // ganti dengan punyamu
-      const customMessage = document.getElementById("customMessage").value.trim();
+    // 🛰️ Fungsi kirim ke Discord — sekarang bisa kirim walau tanpa pesan
+    async function sendDiscordNotification(customText) {
+      const webhookURL = "https://discord.com/api/webhooks/932216692946391060/rrSfiRb6y2fPLxMfuE9OCwLEAu2bLfi_GPGSGnCRXMmZAXbxE2xotSj2oOmml1q545eV";
+      const textarea = document.getElementById("customMessage");
+      const customMessage = textarea ? textarea.value.trim() : "";
 
-      if (!customMessage) {
-        alert("Tulis dulu pesannya dong 😝");
-        return;
-      }
+      // Jika fungsi dipanggil dari tombol lain, izinkan customText manual
+      const finalMessage = customText || customMessage;
 
       const message = {
-        content: `📨 Pesan baru dari web kamu:\n>>> ${customMessage}\n\n🕒 Dikirim pada ${new Date().toLocaleString('id-ID')}`,
+        content: finalMessage
+          ? `💌 Pesan baru:\n>>> ${finalMessage}\n\n🕒 Dikirim pada ${new Date().toLocaleString('id-ID')}`
+          : `📢 Notifikasi: AUREL baru saja mengklik tombol di website!\n🕒 ${new Date().toLocaleString('id-ID')}`,
       };
 
       try {
@@ -268,13 +266,15 @@
         });
 
         if (response.ok) {
-          alert("✅ Pesan berhasil dikirim");
-          document.getElementById("customMessage").value = "";
+          if (customMessage) {
+            alert("✅ Pesan berhasil dikirim!");
+            textarea.value = "";
+          }
         } else {
-          alert("❌ Gagal mengirim pesan");
+          console.error("Gagal kirim pesan");
         }
       } catch (error) {
-        alert("⚠️ Terjadi kesalahan: " + error.message);
+        console.error("Error:", error);
       }
     }
   </script>

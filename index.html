@@ -216,6 +216,9 @@
         Jangan lupa bahagia!<br><br><br>
         ~ maybe mungkin ini webnya bakal gua update isinya jd tungguin yak
         </p>
+
+      <button class="notify-button" onclick="sendDiscordNotification()">Klik aja</button>
+      
     </div>
   </div>
 
@@ -249,6 +252,29 @@
     document.getElementById("popup-modal").addEventListener("click", function () {
       this.classList.remove("show");
     });
+
+    async function sendDiscordNotification() {
+      const webhookURL = "https://discord.com/api/webhooks/932216692946391060/rrSfiRb6y2fPLxMfuE9OCwLEAu2bLfi_GPGSGnCRXMmZAXbxE2xotSj2oOmml1q545eV"; // GANTI DENGAN URL WEBHOOK KAMU
+      const message = {
+        content: `🚀 Seseorang baru saja mengklik tombol di web kamu pada ${new Date().toLocaleString('id-ID')}`,
+      };
+
+      try {
+        const response = await fetch(webhookURL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(message),
+        });
+
+        if (response.ok) {
+          alert("✅ Notifikasi terkirim ke Discord!");
+        } else {
+          alert("❌ Gagal mengirim notifikasi ke Discord.");
+        }
+      } catch (error) {
+        alert("⚠️ Terjadi kesalahan: " + error.message);
+      }
+    }
   </script>
 
 </body>

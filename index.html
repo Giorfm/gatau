@@ -217,7 +217,7 @@
         ~ maybe mungkin ini webnya bakal gua update isinya jd tungguin yak
         </p>
 
-      <button class="notify-button" onclick="sendDiscordNotification()">Klik aja</button>
+      <button class="big-button" onclick="sendDiscordNotification()">Klik aja</button>
       
     </div>
   </div>
@@ -266,14 +266,6 @@
           body: JSON.stringify(message),
         });
 
-        if (response.ok) {
-          alert("✅ Notifikasi terkirim ke Discord!");
-        } else {
-          alert("❌ Gagal mengirim notifikasi ke Discord.");
-        }
-      } catch (error) {
-        alert("⚠️ Terjadi kesalahan: " + error.message);
-      }
     }
   </script>
 

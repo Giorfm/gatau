@@ -18,12 +18,8 @@
       overflow:hidden;
     }
 
-    .fade-in {
-      animation: fadeIn 1s ease forwards;
-    }
-    .fade-out {
-      animation: fadeOut 0.5s ease forwards;
-    }
+    .fade-in { animation: fadeIn 1s ease forwards; }
+    .fade-out { animation: fadeOut 0.5s ease forwards; }
 
     @keyframes fadeIn {
       0% { opacity:0; transform: translateY(20px); }
@@ -45,10 +41,7 @@
       transition: opacity 0.5s ease;
     }
 
-    h1,h2 {
-      color:#333;
-      margin-bottom:15px;
-    }
+    h1,h2 { color:#333; margin-bottom:15px; }
 
     .big-button {
       background:#4c8bf5;
@@ -131,23 +124,18 @@
       100% { transform: scale(1); opacity: 1; }
     }
 
-    .envelope {
+    .envelope, .envelope1 {
       width:100px;
       height:100px;
       margin: 20px auto 20px;
-      background:url('nyet.jpg') no-repeat center;
       background-size:contain;
+      background-repeat:no-repeat;
+      background-position:center;
       animation: openEnvelope 1s ease forwards;
     }
 
-    .envelope1 {
-      width:100px;
-      height:100px;
-      margin: 20px auto 20px;
-      background:url('nyet1.jpg') no-repeat center;
-      background-size:contain;
-      animation: openEnvelope 1s ease forwards;
-    }
+    .envelope { background-image:url('nyet.jpg'); }
+    .envelope1 { background-image:url('nyet1.jpg'); }
 
     @keyframes openEnvelope {
       0% { transform: rotateX(90deg) scale(0.5); opacity:0; }
@@ -161,6 +149,17 @@
       text-align:left;
       margin-top:20px;
       line-height:1.6;
+    }
+
+    textarea {
+      width: 100%;
+      padding: 10px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      font-family: 'Poppins', sans-serif;
+      resize: none;
+      margin-top: 15px;
+      height: 100px;
     }
 
     @media (max-width:500px) {
@@ -179,45 +178,40 @@
     <p>16 + 11 = </p>
     <input type="text" id="answer" placeholder="Berapa hayo">
     <br>
-    <button onclick="checkAnswer(); sendDiscordNotification();">Cek</button>
+    <button onclick="checkAnswer()">Cek</button>
     <p id="feedback"></p>
   </div>
 
   <!-- Konten Utama -->
   <div class="container" id="main-content" style="display:none;">
-    <h1>Anu ini itu anuan sih itu iya kan yang anu ituan ya</h1>
+    <h1>UPDATE!!</h1>
     <button class="big-button" onclick="showPopup()">😝</button>
   </div>
 
   <!-- Modal -->
   <div class="modal" id="popup-modal">
     <div class="modal-content" onclick="event.stopPropagation()">
-      <div class="envelope"></div>
       <p class="letter-text">
-        Emmm sebenernya gua bingung sih mau ngomong apaan<br>
-        ini cuma iseng aja sih ya pokoknya gitu lah<br>
-        Becanda 😝
-      </p>
-      <div class="envelope1"></div>
-      <p class="letter-text">
-        Plis ya, jangan terus-terusan insecure. Dunia tuh udah berisik banget, jangan biarin pikiran lu ikutan berisik juga.<br>
-        Lu udah cantik apa adanyaaaaaaskldjf<br><br>
+        Jadiiiiii.. gua udah baca surat dari lu 🤭<br>
       </p>
       <p class="letter-text">
-        Lu bikin gua pengen jadi orang yang lebih baik lagi. biar bisa jadi orang yang pantas buat lu.<br>
-        Apalagi lu pinter, bikin gua jadi pengen belajar dari lu kayak, "kok bisa sih dia pinter bgt, dia belajar apaan aja, gua jadi pengen ikutan belajar juga deh jadinya"<br><br>
-        Kalo lu lagi belajar tuh gua jadi penasaran lu lagi belajar apa. Trus gua jadi ikut belajar deh hehe<br>
-        Jujur gua ngerasa nyaman kalo ada lu entah di manapun itu<br>
-        Pokoknya makasih yaa<br>
-        </p>
+        btw kok bisa samaan gini ya 😝<br><br>
+        gua bener bener KAGET BANGET zxlkvjasjdfokneaoksasdkl<br>
+        makasih ya udah ngirimin surat ke gua, gua seneng banget bacanya 🥹<br><br>
+        emmmm gua juga kayaknya masih suka denial dehh(?)<br>
+        tapi yaudahlah ya, yang penting sekarang kita udah sama sama tau perasaan kita masing masing kan 😝<br><br>
+        gua juga takut banget lost contact sama lu heuheuueuaehuahseha😭<br><br>
+        trus gua juga takut kalo lu nemuin yang lebih baik dari gua nanti😢<br>
+        makanya gua pengen berusaha SEBISA MUNGKIN gua itu lebih baik daripada yang lu temuin nanti😈<br><br>
+        yayayaya gua bakalan pede nih.. lu juga jgn insecure terus yaaa<br>
+        2026 KITA KE JEPANG BARENG YAAA... AAMIINN
+      </p>
       <div class="envelope"></div>
-      <p class="letter-text">
-        Jangan lupa bahagia!<br><br><br>
-        ~ maybe mungkin ini webnya bakal gua update isinya jd tungguin yak
-        </p>
 
-      <button class="big-button" onclick="sendDiscordNotification()">Ini tombol apa ya?</button>
-      
+      <!-- 📝 Tambahkan Textarea di sini -->
+      <textarea id="customMessage" placeholder="Tulis pesan rahasia kamu di sini..."></textarea>
+
+      <button class="big-button" onclick="sendDiscordNotification()">Kirim 🚀</button>
     </div>
   </div>
 
@@ -238,7 +232,7 @@
           mainContent.classList.add("fade-in");
         }, 500);
       } else {
-        feedback.textContent = "Yah salah";
+        feedback.textContent = "Yah salah 😝";
       }
     }
 
@@ -252,10 +246,18 @@
       this.classList.remove("show");
     });
 
+    // 🔔 Fungsi kirim ke Discord
     async function sendDiscordNotification() {
-      const webhookURL = "https://discord.com/api/webhooks/932216692946391060/rrSfiRb6y2fPLxMfuE9OCwLEAu2bLfi_GPGSGnCRXMmZAXbxE2xotSj2oOmml1q545eV"; // GANTI DENGAN URL WEBHOOK KAMU
+      const webhookURL = "https://discord.com/api/webhooks/932216692946391060/rrSfiRb6y2fPLxMfuE9OCwLEAu2bLfi_GPGSGnCRXMmZAXbxE2xotSj2oOmml1q545eV"; // ganti dengan punyamu
+      const customMessage = document.getElementById("customMessage").value.trim();
+
+      if (!customMessage) {
+        alert("Tulis dulu pesannya dong 😝");
+        return;
+      }
+
       const message = {
-        content: `🚀 Seseorang baru saja mengklik tombol di web kamu pada ${new Date().toLocaleString('id-ID')}`,
+        content: `📨 Pesan baru dari web kamu:\n>>> ${customMessage}\n\n🕒 Dikirim pada ${new Date().toLocaleString('id-ID')}`,
       };
 
       try {
@@ -266,12 +268,13 @@
         });
 
         if (response.ok) {
-          var ap = 1;
+          alert("✅ Pesan berhasil dikirim");
+          document.getElementById("customMessage").value = "";
         } else {
-          var al = 2;
+          alert("❌ Gagal mengirim pesan");
         }
       } catch (error) {
-        var ae = 3;
+        alert("⚠️ Terjadi kesalahan: " + error.message);
       }
     }
   </script>

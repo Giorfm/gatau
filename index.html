@@ -121,7 +121,7 @@
       100% { transform: scale(1); opacity: 1; }
     }
 
-    .envelope, .envelope1 {
+    .envelope, .envelope1, .envelope2, .envelope3 {
       width:100px;
       height:100px;
       margin: 20px auto 20px;
@@ -133,6 +133,8 @@
 
     .envelope { background-image:url('nyet.jpg'); }
     .envelope1 { background-image:url('nyet1.jpg'); }
+    .envelope2 { background-image:url('ehehe.jpeg'); }
+    .envelope3 { background-image:url('cing.jpeg'); }
 
     @keyframes openEnvelope {
       0% { transform: rotateX(90deg) scale(0.5); opacity:0; }
@@ -181,31 +183,36 @@
 
   <!-- Konten Utama -->
   <div class="container" id="main-content" style="display:none;">
-    <h1>UPDATE!!</h1>
+    <h1>sori ges</h1>
     <button class="big-button" onclick="showPopup()">😝</button>
+    <button class="big-button" onclick="sendDiscordNotification()">kirim notif ke gua</button>
   </div>
 
   <!-- Modal -->
   <div class="modal" id="popup-modal">
     <div class="modal-content" onclick="event.stopPropagation()">
       <p class="letter-text">
-        Jadiiiiii.. gua udah baca surat dari lu 🤭<br>
-        gua bener bener KAGET BANGET zxlkvjasjdfokneaoksasdkl<br>
-      </p>
-      <p class="letter-text">
-        btw kok bisa samaan gini ya 😝<br><br>
-        emmmm gua juga kayaknya masih suka denial dehh(?)<br>
-        tapi yaudahlah ya, yang penting sekarang kita udah sama sama tau perasaan kita masing masing kan 😝<br><br>
-        gua juga takut banget lost contact sama lu heuheuueuaehuahseha😭<br><br>
-        trus gua juga takut kalo lu nemuin yang lebih baik dari gua nanti😢<br>
-        makanya gua pengen berusaha SEBISA MUNGKIN gua itu lebih baik daripada yang lu temuin nanti😈<br><br>
-        yayayaya gua bakalan pede nih.. lu juga jgn insecure terus yaaa<br>
-        2026 KITA KE JEPANG BARENG YAAA... AAMIINN
+        WKWKW LUCU BGT, gw kaget isi suratnya kok barcode.. eh ternyata isinya ginian🤭<br>
+        Kalo udh tau perasaan masing" mah emg masih Denial?😗<br>
+        GW JUGA, pengen jadi yg lebih baik daripada org yg lu temuin nanti😤<br>
+        Btw, gw kaget ih... lu tiba" ngasih jaket... Hehehehehehehheheheheh🤭 trimssssss😋 jaketnya gw jual ya kKWKSJS canda<br>
+        Ohiya, mff yh kalo tulisan gw paling jelek drpd tulisan dari surat yg lain... 😭😭😭😭 GA RAPI LAGI.. BANYAK CORETAN WKWKWK YAUDAHLAH YA HEJWHAHAJ<br><br><br>
       </p>
       <div class="envelope"></div>
+      <p class="letter-text">
+        sorry ya baru gua update lagi<br>
+        WKWKWK keren ga? ini juga gua ga nyangka bakal bikin ginian jierr, bahkan sampe gua edit lagi ini isinya🤭<br>
+        itu.. yang jaket.. kan katanya lu kedinginan, jadi yaa gua pakein deh<br>
+      </p>
+      <div class="envelope2"></div>
+      <p class="letter-text">
+        gapapa kokk.. yang penting tulisannya kebacaaa<br>
+        btw way lu ada saran gitu ga sih ini enaknya tambahin apaan ya? gua pengen nambahin sesuatu gitu loh<br>
+      </p>
+      <div class="envelope3"></div>
 
       <!-- 📝 Textarea untuk kirim pesan -->
-      <textarea id="customMessage" placeholder="Mau nulis sesuatu kah?...."></textarea>
+      <textarea id="customMessage" placeholder="Kasih saran plis bebas apa aja"></textarea>
 
       <button class="big-button" onclick="sendDiscordNotification()">Kirim 🚀</button>
     </div>
@@ -254,7 +261,7 @@
       const message = {
         content: finalMessage
           ? `💌 Pesan baru:\n>>> ${finalMessage}\n\n🕒 Dikirim pada ${new Date().toLocaleString('id-ID')}`
-          : `📢 Notifikasi: AUREL baru saja mengklik tombol di website!\n🕒 ${new Date().toLocaleString('id-ID')}`,
+          : `📢 Notifikasi: Aurel baru saja mengklik tombol di website!\n🕒 ${new Date().toLocaleString('id-ID')}`,
       };
 
       try {

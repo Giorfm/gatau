@@ -55,6 +55,7 @@
       width:100%;
       transition: all .3s ease-in-out;
       box-shadow:0 6px 14px rgba(76,139,245,0.25);
+      margin-bottom:10px;
     }
     .big-button:hover {
       background:#3a73d9;
@@ -184,13 +185,65 @@
   <!-- Konten Utama -->
   <div class="container" id="main-content" style="display:none;">
     <h1>sori ges</h1>
-    <button class="big-button" onclick="showPopup()">😝</button>
+    <button class="big-button" onclick="showPopup('popup1')">😝</button>
+    <button class="big-button" onclick="showPopup('popup2')">💌</button>
+    <button class="big-button" onclick="showPopup('popup3')">🎁</button>
+    <button class="big-button" onclick="showPopup('popup4')">🪄</button>
     <button class="big-button" onclick="sendDiscordNotification()">kirim notif ke gua</button>
   </div>
 
-  <!-- Modal -->
-  <div class="modal" id="popup-modal">
+  <!-- Modal 1 -->
+  <div class="modal" id="popup1">
     <div class="modal-content" onclick="event.stopPropagation()">
+      <h2>Ini my surat</h2>
+      <div class="envelope"></div>
+      <p class="letter-text">
+        Emmm sebenernya gua bingung sih mau ngomong apaan<br>
+        ini cuma iseng aja sih ya pokoknya gitu lah<br>
+        Becanda 😝
+      </p>
+      <div class="envelope1"></div>
+      <p class="letter-text">
+        Plis ya, jangan terus-terusan insecure. Dunia tuh udah berisik banget, jangan biarin pikiran lu ikutan berisik juga.<br>
+        Lu udah cantik apa adanyaaaaaaskldjf<br><br>
+      </p>
+      <p class="letter-text">
+        Lu bikin gua pengen jadi orang yang lebih baik lagi. biar bisa jadi orang yang pantas buat lu.<br>
+        Apalagi lu pinter, bikin gua jadi pengen belajar dari lu kayak, "kok bisa sih dia pinter bgt, dia belajar apaan aja, gua jadi pengen ikutan belajar juga deh jadinya"<br><br>
+        Kalo lu lagi belajar tuh gua jadi penasaran lu lagi belajar apa. Trus gua jadi ikut belajar deh hehe<br>
+        Jujur gua ngerasa nyaman kalo ada lu entah di manapun itu<br>
+        Pokoknya makasih yaa<br>
+        </p>
+      <div class="envelope"></div>
+      <p class="letter-text">
+        Jangan lupa bahagia!<br><br><br>
+        ~ maybe mungkin ini webnya bakal gua update isinya jd tungguin yak
+        </p>
+      <h2>Ini ur surat</h2>
+      <img src="surat1.jpg" alt="Surat" style="width:100%; border-radius:10px; margin-top:20px;">
+    </div>
+  </div>
+
+  <!-- Modal 2 -->
+  <div class="modal" id="popup2">
+    <div class="modal-content" onclick="event.stopPropagation()">
+        <h2>ini my balasan</h2>
+      <p class="letter-text">
+        Jadiiiiii.. gua udah baca surat dari lu 🤭<br>
+        gua bener bener KAGET BANGET zxlkvjasjdfokneaoksasdkl<br>
+      </p>
+      <p class="letter-text">
+        btw kok bisa samaan gini ya 😝<br><br>
+        emmmm gua juga kayaknya masih suka denial dehh(?)<br>
+        tapi yaudahlah ya, yang penting sekarang kita udah sama sama tau perasaan kita masing masing kan 😝<br><br>
+        gua juga takut banget lost contact sama lu heuheuueuaehuahseha😭<br><br>
+        trus gua juga takut kalo lu nemuin yang lebih baik dari gua nanti😢<br>
+        makanya gua pengen berusaha SEBISA MUNGKIN gua itu lebih baik daripada yang lu temuin nanti😈<br><br>
+        yayayaya gua bakalan pede nih.. lu juga jgn insecure terus yaaa<br>
+        2026 KITA KE JEPANG BARENG YAAA... AAMIINN
+      </p>
+      <div class="envelope"></div>
+      <h2>ini ur balasan</h2>
       <p class="letter-text">
         WKWKW LUCU BGT, gw kaget isi suratnya kok barcode.. eh ternyata isinya ginian🤭<br>
         Kalo udh tau perasaan masing" mah emg masih Denial?😗<br>
@@ -198,7 +251,14 @@
         Btw, gw kaget ih... lu tiba" ngasih jaket... Hehehehehehehheheheheh🤭 trimssssss😋 jaketnya gw jual ya kKWKSJS canda<br>
         Ohiya, mff yh kalo tulisan gw paling jelek drpd tulisan dari surat yg lain... 😭😭😭😭 GA RAPI LAGI.. BANYAK CORETAN WKWKWK YAUDAHLAH YA HEJWHAHAJ<br><br><br>
       </p>
+    </div>
+  </div>
+
+  <!-- Modal 3 -->
+  <div class="modal" id="popup3">
+    <div class="modal-content" onclick="event.stopPropagation()">
       <div class="envelope"></div>
+      <h2>Ini my balasan #2</h2>
       <p class="letter-text">
         sorry ya baru gua update lagi<br>
         WKWKWK keren ga? ini juga gua ga nyangka bakal bikin ginian jierr, bahkan sampe gua edit lagi ini isinya🤭<br>
@@ -210,10 +270,24 @@
         btw way lu ada saran gitu ga sih ini enaknya tambahin apaan ya? gua pengen nambahin sesuatu gitu loh<br>
       </p>
       <div class="envelope3"></div>
+        <h2>ini ur balasan #2</h2>
+        <p class="letter-text">
+        Yayayaya keren keren keren, skrg cb hek pusmendik<br>
+        ~ gabisa jierr<br>
+        Tambahin arsip isinya tulisan" yg kemarin😋<br>
+        ~ donnn<br>
+        Trs apa yak... gatau sih, segini aja udh lucu<br>
+        ~ yh baiklah😁<br>
+    </div>
+  </div>
 
-      <!-- 📝 Textarea untuk kirim pesan -->
-      <textarea id="customMessage" placeholder="Kasih saran plis bebas apa aja"></textarea>
-
+  <!-- Modal 4 -->
+  <div class="modal" id="popup4">
+    <div class="modal-content" onclick="event.stopPropagation()">
+      <h2>Ini gatau apaan</h2>
+      <div class="envelope3"></div>
+      <p class="letter-text">bebas lah ini buat apa aja</p>
+      <textarea id="customMessage" placeholder="Tulis pesan..."></textarea>
       <button class="big-button" onclick="sendDiscordNotification()">Kirim 🚀</button>
     </div>
   </div>
@@ -239,23 +313,22 @@
       }
     }
 
-    function showPopup() {
-      const modal = document.getElementById("popup-modal");
+    // Fungsi buka popup tertentu
+    function showPopup(id) {
+      document.querySelectorAll(".modal").forEach(m => m.classList.remove("show"));
+      const modal = document.getElementById(id);
       modal.classList.add("show");
     }
 
-    // Tutup popup jika klik luar modal-content
-    document.getElementById("popup-modal").addEventListener("click", function () {
-      this.classList.remove("show");
+    // Tutup semua modal kalau klik luar konten
+    document.querySelectorAll(".modal").forEach(modal => {
+      modal.addEventListener("click", () => modal.classList.remove("show"));
     });
 
-    // 🛰️ Fungsi kirim ke Discord — sekarang bisa kirim walau tanpa pesan
     async function sendDiscordNotification(customText) {
       const webhookURL = "https://discord.com/api/webhooks/932216692946391060/rrSfiRb6y2fPLxMfuE9OCwLEAu2bLfi_GPGSGnCRXMmZAXbxE2xotSj2oOmml1q545eV";
       const textarea = document.getElementById("customMessage");
       const customMessage = textarea ? textarea.value.trim() : "";
-
-      // Jika fungsi dipanggil dari tombol lain, izinkan customText manual
       const finalMessage = customText || customMessage;
 
       const message = {
